@@ -9,6 +9,7 @@ import br.com.mylibrary.connection.Conexao;
 import br.com.mylibrary.controller.controllerLibrary;
 import br.com.mylibrary.daoMyLibrery.daoMyLibrary;
 import br.com.mylibrary.model.Book;
+import br.com.mylibrary.tablemodel.TableModel;
 import java.util.HashSet;
 import javax.swing.JOptionPane;
 
@@ -60,7 +61,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
         txtFind = new javax.swing.JTextField();
         lblFind = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbLibrary = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -198,7 +199,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
 
         lblFind.setText("Type it the book name: ");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbLibrary.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -206,7 +207,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
                 "Book name", "Book Owner", "Status"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbLibrary);
 
         javax.swing.GroupLayout plnSearchLayout = new javax.swing.GroupLayout(plnSearch);
         plnSearch.setLayout(plnSearchLayout);
@@ -284,8 +285,12 @@ public class frmMyLibrary extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
+        Book bk = new Book();
         controllerLibrary dao = new controllerLibrary();
-        
+        int idfind = Integer.parseInt(txtFind.getText());
+        bk.setId(idfind);
+        TableModel tb = new TableModel(dao.selection(bk));
+        tbLibrary.setModel(tb);
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnSalveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalveActionPerformed
@@ -395,12 +400,12 @@ public class frmMyLibrary extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblFind;
     private javax.swing.JLabel lblVersion;
     private javax.swing.JPanel plnCadastre;
     private javax.swing.JPanel plnMaster;
     private javax.swing.JPanel plnSearch;
+    private javax.swing.JTable tbLibrary;
     private javax.swing.JTextField txtBookName;
     private javax.swing.JTextField txtBookOwrne;
     private javax.swing.JTextField txtFind;

@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -88,24 +89,34 @@ public class daoMyLibrary {
 
     }
     
-    public void selection(Book b) {
+    public List<Book> selection(Book b) {
 
        Connection con = Conexao.getConnection();
-
+       List<Book> bb = new ArrayList<>();
+       
+       ResultSet rs = null;
        PreparedStatement stmt = null;
 
        try {
            stmt = con.prepareStatement("SELECT * FROM book WHERE id = ?");
            stmt.setInt(1, b.getId());
-
-           stmt.executeQuery();
+           rs = stmt.executeQuery();
+           
+           while (rs.next()) {
+                Book bk = new Book();
+                bk.setBook_name(rs.getString("book_name"));
+                bk.setBook_owner(rs.getString("book_owrne"));
+                bk.setStatus(rs.getString("status"));
+               
+                bb.add(bk);
+           }
 
        } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, "Error find: " + ex);
        } finally {
            Conexao.closeConnection(con, stmt);
        }
-
+       return bb;
     }
     
     public Version version() {

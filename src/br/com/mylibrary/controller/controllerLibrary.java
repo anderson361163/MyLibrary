@@ -31,9 +31,9 @@ public class controllerLibrary {
         dao.delete(b);
     }
     
-    public void selection(Book b){
+    public List<Book> selection(Book b){
         daoMyLibrary dao = new daoMyLibrary();
-        dao.selection(b);
+        return dao.selection(b);
     }
     
     public Version selectionVersion(){
