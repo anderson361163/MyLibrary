@@ -138,7 +138,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Book name", "Book Owner", "Status"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
