@@ -10,6 +10,7 @@ import br.com.mylibrary.model.Book;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -106,22 +107,16 @@ public class daoMyLibrary {
 
     }
     
-    public void version(Book b) {
+    public List<version> version() {
 
        Connection con = Conexao.getConnection();
 
        PreparedStatement stmt = null;
 
        try {
-           stmt = con.prepareStatement("SELECT book SET book_name = ? , book_owner = ?, status = ? WHERE id = ?");
-           stmt.setString(1, b.getBook_name());
-           stmt.setString(2, b.getBook_owner());
-           stmt.setString(3, b.getStatus());
-           stmt.setInt(4, b.getId());
-
-           stmt.executeUpdate();
-
-           JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+           stmt = con.prepareStatement("SELECT * FROM version ORDER BY system_version DESC LIMIT 1");
+           stmt.executeQuery();
+           
        } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
        } finally {
