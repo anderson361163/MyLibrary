@@ -5,6 +5,10 @@
  */
 package br.com.mylibrary.interfaces;
 
+import br.com.mylibrary.connection.Conexao;
+import br.com.mylibrary.daoMyLibrery.daoMyLibrary;
+import br.com.mylibrary.model.Book;
+
 /**
  *
  * @author Anderson
@@ -37,7 +41,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtBookName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtStatus = new javax.swing.JComboBox<>();
         lblVersion = new javax.swing.JLabel();
         txtVersion = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
@@ -53,6 +57,11 @@ public class frmMyLibrary extends javax.swing.JFrame {
         plnCadastre.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastre of Books"));
 
         btnSalve.setText("Salve");
+        btnSalve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalveActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
 
@@ -64,7 +73,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
 
         jLabel4.setText("Status:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Selection a Option ---", "I've already read", "I'm reading", "I did not read" }));
+        txtStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Selection a Option ---", "I've already read", "I'm reading", "I did not read" }));
 
         javax.swing.GroupLayout plnCadastreLayout = new javax.swing.GroupLayout(plnCadastre);
         plnCadastre.setLayout(plnCadastreLayout);
@@ -92,7 +101,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtBookOwrne)
-                            .addComponent(jComboBox1, 0, 372, Short.MAX_VALUE))
+                            .addComponent(txtStatus, 0, 372, Short.MAX_VALUE))
                         .addGap(22, 22, 22))))
         );
         plnCadastreLayout.setVerticalGroup(
@@ -108,7 +117,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -222,6 +231,15 @@ public class frmMyLibrary extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFindActionPerformed
 
+    private void btnSalveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalveActionPerformed
+        daoMyLibrary con = new daoMyLibrary();
+        Book b = new Book();
+        b.setBook_name(txtBookName.getText().toString());
+        b.setBook_owner(txtBookOwrne.getText().toString());
+        b.setStatus(txtStatus.getText().toString());
+        con.insert(b);
+    }//GEN-LAST:event_btnSalveActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -263,7 +281,6 @@ public class frmMyLibrary extends javax.swing.JFrame {
     private javax.swing.JButton btnFind;
     private javax.swing.JButton btnModernize;
     private javax.swing.JButton btnSalve;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -277,6 +294,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
     private javax.swing.JTextField txtBookName;
     private javax.swing.JTextField txtBookOwrne;
     private javax.swing.JTextField txtFind;
+    private javax.swing.JComboBox<String> txtStatus;
     private javax.swing.JTextField txtVersion;
     // End of variables declaration//GEN-END:variables
 }
