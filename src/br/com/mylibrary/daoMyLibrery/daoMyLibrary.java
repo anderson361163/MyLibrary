@@ -7,9 +7,12 @@ package br.com.mylibrary.daoMyLibrery;
 
 import br.com.mylibrary.connection.Conexao;
 import br.com.mylibrary.model.Book;
+import br.com.mylibrary.model.Version;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -107,22 +110,29 @@ public class daoMyLibrary {
 
     }
     
-    public List<version> version() {
+    public List<Version> version() {
 
        Connection con = Conexao.getConnection();
-
+       List<Version> version = new ArrayList<>();
+       
        PreparedStatement stmt = null;
-
+       ResultSet rs = null;
+       
        try {
            stmt = con.prepareStatement("SELECT * FROM version ORDER BY system_version DESC LIMIT 1");
-           stmt.executeQuery();
+           rs = stmt.executeQuery();
            
+           while (rs.next()) {
+                Version vs = new Version();
+                vs.setSystem_version(rs.getString("system_version"));
+                version.add(vs);
+           }
        } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
        } finally {
            Conexao.closeConnection(con, stmt);
        }
-
+       return version;
     }
     
     
