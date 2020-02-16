@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.mylibrery.model;
+package br.com.mylibrary.connection;
 
 /**
  *
  * @author Anderson
  */
-public class Book {
+public class connection {
     
 }
