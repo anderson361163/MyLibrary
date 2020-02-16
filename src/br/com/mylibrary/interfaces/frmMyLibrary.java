@@ -10,6 +10,7 @@ import br.com.mylibrary.controller.controllerLibrary;
 import br.com.mylibrary.daoMyLibrery.daoMyLibrary;
 import br.com.mylibrary.model.Book;
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,10 +21,11 @@ public class frmMyLibrary extends javax.swing.JFrame {
     /**
      * Creates new form frmMyLibrary
      */
-    public frmMyLibrary() {
-        controllerLibrary lib = new controllerLibrary();
+    public frmMyLibrary() { 
         initComponents();
-        txtVersion.setText(lib.selectionVersion().get(1).toString());
+        controllerLibrary lib = new controllerLibrary();
+        String aa = lib.selectionVersion().getSystem_version();
+        txtVersion.setText(aa);
     }
 
     /**
@@ -148,6 +150,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
 
         lblVersion.setText("System version:");
 
+        txtVersion.setEditable(false);
         txtVersion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVersionActionPerformed(evt);
@@ -155,6 +158,11 @@ public class frmMyLibrary extends javax.swing.JFrame {
         });
 
         btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         plnSearch.setBorder(javax.swing.BorderFactory.createTitledBorder("Your books and your status"));
 
@@ -295,6 +303,10 @@ public class frmMyLibrary extends javax.swing.JFrame {
     private void txtVersionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVersionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVersionActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        JOptionPane.showMessageDialog(null, "We are still designing the features of this button. Wait");
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments

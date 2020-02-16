@@ -36,7 +36,7 @@ public class controllerLibrary {
         dao.selection(b);
     }
     
-    public List<Version> selectionVersion(){
+    public Version selectionVersion(){
         daoMyLibrary dao = new daoMyLibrary();
         return dao.version();
     }

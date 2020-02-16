@@ -110,11 +110,10 @@ public class daoMyLibrary {
 
     }
     
-    public List<Version> version() {
+    public Version version() {
 
        Connection con = Conexao.getConnection();
-       List<Version> version = new ArrayList<>();
-       
+       Version vs = new Version();
        PreparedStatement stmt = null;
        ResultSet rs = null;
        
@@ -123,16 +122,15 @@ public class daoMyLibrary {
            rs = stmt.executeQuery();
            
            while (rs.next()) {
-                Version vs = new Version();
+                
                 vs.setSystem_version(rs.getString("system_version"));
-                version.add(vs);
            }
        } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
        } finally {
            Conexao.closeConnection(con, stmt);
        }
-       return version;
+       return vs;
     }
     
     

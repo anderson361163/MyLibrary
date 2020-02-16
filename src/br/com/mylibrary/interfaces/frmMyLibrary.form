@@ -218,6 +218,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtVersion">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVersionActionPerformed"/>
           </Events>
@@ -226,6 +229,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="plnSearch">
           <Properties>
