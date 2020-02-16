@@ -237,7 +237,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
         b.setBook_name(txtBookName.getText().toString());
         b.setBook_owner(txtBookOwrne.getText().toString());
         b.setStatus(txtStatus.getText().toString());
-        con.insert(b);
+      //  con.insert(b);
     }//GEN-LAST:event_btnSalveActionPerformed
 
     /**
