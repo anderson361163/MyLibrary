@@ -284,16 +284,19 @@ public class frmMyLibrary extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
-        // TODO add your handling code here:
+        controllerLibrary dao = new controllerLibrary();
+        
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnSalveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalveActionPerformed
-        controllerLibrary dao = new controllerLibrary();
-        Book b = new Book();
-        b.setBook_name(txtBookName.getText().toString());
-        b.setBook_owner(txtBookOwrne.getText().toString());
-        b.setStatus(txtStatus.getName());  
-        dao.insert(b);
+//        controllerLibrary dao = new controllerLibrary();
+//        Book b = new Book();
+//        b.setBook_name(txtBookName.getText().toString());
+//        b.setBook_owner(txtBookOwrne.getText().toString());
+//        b.setStatus(txtStatus.getName());  
+//        dao.insert(b);
+
+          JOptionPane.showMessageDialog(null, "We are still designing the features of this button. Wait");
     }//GEN-LAST:event_btnSalveActionPerformed
 
     private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
