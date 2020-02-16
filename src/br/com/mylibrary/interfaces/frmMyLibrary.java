@@ -21,7 +21,9 @@ public class frmMyLibrary extends javax.swing.JFrame {
      * Creates new form frmMyLibrary
      */
     public frmMyLibrary() {
+        controllerLibrary lib = new controllerLibrary();
         initComponents();
+        txtVersion.setText(lib.selectionVersion().get(1).toString());
     }
 
     /**
@@ -145,6 +147,12 @@ public class frmMyLibrary extends javax.swing.JFrame {
         );
 
         lblVersion.setText("System version:");
+
+        txtVersion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVersionActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
 
@@ -283,6 +291,10 @@ public class frmMyLibrary extends javax.swing.JFrame {
         b.setStatus(txtStatus.getName());
         dao.delete(b);
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void txtVersionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVersionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtVersionActionPerformed
 
     /**
      * @param args the command line arguments

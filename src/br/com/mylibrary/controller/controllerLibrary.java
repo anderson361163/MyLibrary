@@ -7,6 +7,8 @@ package br.com.mylibrary.controller;
 
 import br.com.mylibrary.daoMyLibrery.daoMyLibrary;
 import br.com.mylibrary.model.Book;
+import br.com.mylibrary.model.Version;
+import java.util.List;
 
 /**
  *
@@ -32,6 +34,11 @@ public class controllerLibrary {
     public void selection(Book b){
         daoMyLibrary dao = new daoMyLibrary();
         dao.selection(b);
+    }
+    
+    public List<Version> selectionVersion(){
+        daoMyLibrary dao = new daoMyLibrary();
+        return dao.version();
     }
     
 }
