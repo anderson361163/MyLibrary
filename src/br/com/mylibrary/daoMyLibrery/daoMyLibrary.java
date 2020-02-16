@@ -18,29 +18,29 @@ import javax.swing.JOptionPane;
  */
 public class daoMyLibrary {
     
-//     public void create(Book b) {
-//        
-//        Connection con = Conexao.getConnection();
-//        
-//        PreparedStatement stmt = null;
-//
-//        try {
-//            stmt = con.prepareStatement("INSERT INTO produto (book_name,book_owner,status)VALUES(?,?,?)");
-//            stmt.setString(1, b.getBook_name());
-//            stmt.setString(2, b.getBook_owner());
-//            stmt.setString(3, b.getStatus());
-//
-//            stmt.executeUpdate();
-//
-//            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
-//        } catch (SQLException ex) {
-//            System.out.println(ex);
-//        } finally {
-//            Conexao.closeConnection(con, stmt);
-//        }
-//
-//    }
-     
+     public void create(Book b) {
+        
+        Connection con = Conexao.getConnection();
+        
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("INSERT INTO produto (book_name,book_owner,status)VALUES(?,?,?)");
+            stmt.setString(1, b.getBook_name());
+            stmt.setString(2, b.getBook_owner());
+            stmt.setString(3, b.getStatus());
+
+            stmt.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            Conexao.closeConnection(con, stmt);
+        }
+
+    }
+    
     public void update(Book b) {
 
        Connection con = Conexao.getConnection();
@@ -77,7 +77,7 @@ public class daoMyLibrary {
 
            stmt.executeUpdate();
 
-           JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+           JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso!");
        } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
        } finally {
@@ -85,6 +85,27 @@ public class daoMyLibrary {
        }
 
     }
+    
+    public void selection(Book b) {
+
+       Connection con = Conexao.getConnection();
+
+       PreparedStatement stmt = null;
+
+       try {
+           stmt = con.prepareStatement("SELECT * FROM book WHERE id = ?");
+           stmt.setInt(1, b.getId());
+
+           stmt.executeQuery();
+
+       } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+       } finally {
+           Conexao.closeConnection(con, stmt);
+       }
+
+    }
+    
     
     
 }

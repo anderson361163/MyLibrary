@@ -6,8 +6,10 @@
 package br.com.mylibrary.interfaces;
 
 import br.com.mylibrary.connection.Conexao;
+import br.com.mylibrary.controller.controllerLibrary;
 import br.com.mylibrary.daoMyLibrery.daoMyLibrary;
 import br.com.mylibrary.model.Book;
+import java.util.HashSet;
 
 /**
  *
@@ -64,8 +66,18 @@ public class frmMyLibrary extends javax.swing.JFrame {
         });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnModernize.setText("Modernize");
+        btnModernize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModernizeActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Book Name:");
 
@@ -74,6 +86,11 @@ public class frmMyLibrary extends javax.swing.JFrame {
         jLabel4.setText("Status:");
 
         txtStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Selection a Option ---", "I've already read", "I'm reading", "I did not read" }));
+        txtStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStatusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout plnCadastreLayout = new javax.swing.GroupLayout(plnCadastre);
         plnCadastre.setLayout(plnCadastreLayout);
@@ -232,13 +249,40 @@ public class frmMyLibrary extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnSalveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalveActionPerformed
-        daoMyLibrary con = new daoMyLibrary();
+        controllerLibrary dao = new controllerLibrary();
         Book b = new Book();
         b.setBook_name(txtBookName.getText().toString());
         b.setBook_owner(txtBookOwrne.getText().toString());
-        b.setStatus(txtStatus.getText().toString());
-      //  con.insert(b);
+        b.setStatus(txtStatus.getName());  
+        dao.insert(b);
     }//GEN-LAST:event_btnSalveActionPerformed
+
+    private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
+       controllerLibrary dao = new controllerLibrary();
+        Book b = new Book();
+        b.setBook_name(txtBookName.getText());
+        b.setBook_owner(txtBookOwrne.getText());
+        b.setStatus(txtStatus.getName());
+        dao.modernize(b);
+    }//GEN-LAST:event_txtStatusActionPerformed
+
+    private void btnModernizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModernizeActionPerformed
+        controllerLibrary dao = new controllerLibrary();
+        Book b = new Book();
+        b.setBook_name(txtBookName.getText());
+        b.setBook_owner(txtBookOwrne.getText());
+        b.setStatus(txtStatus.getName());
+        dao.modernize(b);
+    }//GEN-LAST:event_btnModernizeActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        controllerLibrary dao = new controllerLibrary();
+        Book b = new Book();
+        b.setBook_name(txtBookName.getText());
+        b.setBook_owner(txtBookOwrne.getText());
+        b.setStatus(txtStatus.getName());
+        dao.delete(b);
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
