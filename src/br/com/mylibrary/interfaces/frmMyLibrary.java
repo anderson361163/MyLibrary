@@ -300,9 +300,11 @@ public class frmMyLibrary extends javax.swing.JFrame {
             TableModel tb = new TableModel(dao.selection(bk));
             tbLibrary.setModel(tb);
         }else{
-             JOptionPane.showMessageDialog(null, "Enter the book code to perform a search");
+            txtFind.setText("");
+            JOptionPane.showMessageDialog(null, "Enter the book code to perform a search");
+             
         }
-        
+        txtFind.setText("");
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnSalveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalveActionPerformed
@@ -336,7 +338,12 @@ public class frmMyLibrary extends javax.swing.JFrame {
             b.setId(Integer.parseInt(id));
             b.setStatus(status);
             dao.modernize(b);
+            
+            
         }
+        txtBookName.setText("");
+        txtBookOwrne.setText("");
+        txtStatus.setSelectedIndex(1);
     }//GEN-LAST:event_btnModernizeActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

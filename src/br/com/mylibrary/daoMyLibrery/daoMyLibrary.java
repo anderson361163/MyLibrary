@@ -58,14 +58,13 @@ public class daoMyLibrary {
            stmt.setInt(2, b.getId());
 
            stmt.executeUpdate();
-
-           JOptionPane.showMessageDialog(null, "Successfully updated!");
+           
        } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, "Error updating: " + ex);
        } finally {
            Conexao.closeConnection(con, stmt);
        }
-
+        
     }
     
     public void delete(Book b) {
