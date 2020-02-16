@@ -52,17 +52,15 @@ public class daoMyLibrary {
        PreparedStatement stmt = null;
 
        try {
-           stmt = con.prepareStatement("UPDATE book SET book_name = ? , book_owner = ?, status = ? WHERE id = ?");
-           stmt.setString(1, b.getBook_name());
-           stmt.setString(2, b.getBook_owner());
-           stmt.setString(3, b.getStatus());
-           stmt.setInt(4, b.getId());
+           stmt = con.prepareStatement("UPDATE book SET status = ? WHERE id = ?");
+           stmt.setString(1, b.getStatus());
+           stmt.setInt(2, b.getId());
 
            stmt.executeUpdate();
 
-           JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+           JOptionPane.showMessageDialog(null, "Successfully updated!");
        } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+           JOptionPane.showMessageDialog(null, "Error updating: " + ex);
        } finally {
            Conexao.closeConnection(con, stmt);
        }
@@ -81,9 +79,9 @@ public class daoMyLibrary {
 
            stmt.executeUpdate();
 
-           JOptionPane.showMessageDialog(null, "Exclusão realizada com sucesso!");
+           JOptionPane.showMessageDialog(null, "Successfully deleted!");
        } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+           JOptionPane.showMessageDialog(null, "Error deleted: " + ex);
        } finally {
            Conexao.closeConnection(con, stmt);
        }
@@ -103,7 +101,7 @@ public class daoMyLibrary {
            stmt.executeQuery();
 
        } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+           JOptionPane.showMessageDialog(null, "Error find: " + ex);
        } finally {
            Conexao.closeConnection(con, stmt);
        }
@@ -126,7 +124,7 @@ public class daoMyLibrary {
                 vs.setSystem_version(rs.getString("system_version"));
            }
        } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+           JOptionPane.showMessageDialog(null, "Error find: " + ex);
        } finally {
            Conexao.closeConnection(con, stmt);
        }

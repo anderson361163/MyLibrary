@@ -48,6 +48,10 @@ public class frmMyLibrary extends javax.swing.JFrame {
         txtBookName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtStatus = new javax.swing.JComboBox<>();
+        txtId = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtdt = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         lblVersion = new javax.swing.JLabel();
         txtVersion = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
@@ -96,12 +100,16 @@ public class frmMyLibrary extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("ID:");
+
+        jLabel6.setText("Data de Hoje:");
+
         javax.swing.GroupLayout plnCadastreLayout = new javax.swing.GroupLayout(plnCadastre);
         plnCadastre.setLayout(plnCadastreLayout);
         plnCadastreLayout.setHorizontalGroup(
             plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plnCadastreLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plnCadastreLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addGroup(plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, plnCadastreLayout.createSequentialGroup()
                         .addComponent(btnSalve, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -109,12 +117,11 @@ public class frmMyLibrary extends javax.swing.JFrame {
                         .addComponent(btnModernize, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(90, 90, 90)
                         .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))
+                        .addGap(11, 11, 11))
                     .addGroup(plnCadastreLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                        .addComponent(txtBookName, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22))
+                        .addComponent(txtBookName, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(plnCadastreLayout.createSequentialGroup()
                         .addGroup(plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -122,13 +129,29 @@ public class frmMyLibrary extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtBookOwrne)
-                            .addComponent(txtStatus, 0, 372, Short.MAX_VALUE))
-                        .addGap(22, 22, 22))))
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(plnCadastreLayout.createSequentialGroup()
+                        .addGroup(plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtdt)
+                            .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))))
+                .addGap(24, 24, 24))
         );
         plnCadastreLayout.setVerticalGroup(
             plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plnCadastreLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(21, 21, 21)
+                .addGroup(plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(plnCadastreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtBookName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -145,7 +168,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
                     .addComponent(btnSalve)
                     .addComponent(btnDelete)
                     .addComponent(btnModernize))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         lblVersion.setText("System version:");
@@ -243,7 +266,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
                 .addComponent(plnCadastre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(plnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -274,30 +297,45 @@ public class frmMyLibrary extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalveActionPerformed
 
     private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
-       controllerLibrary dao = new controllerLibrary();
-        Book b = new Book();
-        b.setBook_name(txtBookName.getText());
-        b.setBook_owner(txtBookOwrne.getText());
-        b.setStatus(txtStatus.getName());
-        dao.modernize(b);
+
     }//GEN-LAST:event_txtStatusActionPerformed
 
     private void btnModernizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModernizeActionPerformed
-        controllerLibrary dao = new controllerLibrary();
-        Book b = new Book();
-        b.setBook_name(txtBookName.getText());
-        b.setBook_owner(txtBookOwrne.getText());
-        b.setStatus(txtStatus.getName());
-        dao.modernize(b);
+        String id = txtId.getText();
+        String bkn = txtBookName.getText();
+        String bko = txtBookOwrne.getText();
+        String status = txtStatus.getSelectedItem().toString();
+        
+        System.out.println(status);
+        
+        if(id.isEmpty() || status.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Error processing your request, please make sure you correctly fill in the fields");
+        }else{
+            controllerLibrary dao = new controllerLibrary();
+            Book b = new Book();
+            b.setId(Integer.parseInt(id));
+            b.setStatus(status);
+            dao.modernize(b);
+        }
     }//GEN-LAST:event_btnModernizeActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        controllerLibrary dao = new controllerLibrary();
-        Book b = new Book();
-        b.setBook_name(txtBookName.getText());
-        b.setBook_owner(txtBookOwrne.getText());
-        b.setStatus(txtStatus.getName());
-        dao.delete(b);
+        
+        String bkn = txtBookName.getText();
+        String bko = txtBookOwrne.getText();
+        String status = txtStatus.getName();
+   
+        if(!(bkn.isEmpty() || bko.isEmpty() || status.isEmpty())){
+            controllerLibrary dao = new controllerLibrary();
+            Book b = new Book();
+            b.setBook_name(bkn);
+            b.setBook_owner(bko);
+            b.setStatus(status);
+            dao.delete(b);
+        
+        }else{
+            JOptionPane.showMessageDialog(null, "Error processing your request, please make sure you correctly fill in the fields");
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void txtVersionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVersionActionPerformed
@@ -308,8 +346,7 @@ public class frmMyLibrary extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "We are still designing the features of this button. Wait");
     }//GEN-LAST:event_btnBackActionPerformed
 
-    /**
-     * @param args the command line arguments
+    /**     * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -352,6 +389,8 @@ public class frmMyLibrary extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblFind;
@@ -362,7 +401,9 @@ public class frmMyLibrary extends javax.swing.JFrame {
     private javax.swing.JTextField txtBookName;
     private javax.swing.JTextField txtBookOwrne;
     private javax.swing.JTextField txtFind;
+    private javax.swing.JTextField txtId;
     private javax.swing.JComboBox<String> txtStatus;
     private javax.swing.JTextField txtVersion;
+    private javax.swing.JTextField txtdt;
     // End of variables declaration//GEN-END:variables
 }
