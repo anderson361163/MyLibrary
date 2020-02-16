@@ -25,7 +25,7 @@ public class daoMyLibrary {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO produto (book_name,book_owner,status)VALUES(?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO book (book_name,book_owner,status)VALUES(?,?,?)");
             stmt.setString(1, b.getBook_name());
             stmt.setString(2, b.getBook_owner());
             stmt.setString(3, b.getStatus());
@@ -48,7 +48,7 @@ public class daoMyLibrary {
        PreparedStatement stmt = null;
 
        try {
-           stmt = con.prepareStatement("UPDATE produto SET book_name = ? , book_owner = ?, status = ? WHERE id = ?");
+           stmt = con.prepareStatement("UPDATE book SET book_name = ? , book_owner = ?, status = ? WHERE id = ?");
            stmt.setString(1, b.getBook_name());
            stmt.setString(2, b.getBook_owner());
            stmt.setString(3, b.getStatus());
@@ -72,7 +72,7 @@ public class daoMyLibrary {
        PreparedStatement stmt = null;
 
        try {
-           stmt = con.prepareStatement("DELETE FROM library WHERE id = ?");
+           stmt = con.prepareStatement("DELETE FROM book WHERE id = ?");
            stmt.setInt(1, b.getId());
 
            stmt.executeUpdate();
@@ -106,6 +106,29 @@ public class daoMyLibrary {
 
     }
     
+    public void version(Book b) {
+
+       Connection con = Conexao.getConnection();
+
+       PreparedStatement stmt = null;
+
+       try {
+           stmt = con.prepareStatement("SELECT book SET book_name = ? , book_owner = ?, status = ? WHERE id = ?");
+           stmt.setString(1, b.getBook_name());
+           stmt.setString(2, b.getBook_owner());
+           stmt.setString(3, b.getStatus());
+           stmt.setInt(4, b.getId());
+
+           stmt.executeUpdate();
+
+           JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+       } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + ex);
+       } finally {
+           Conexao.closeConnection(con, stmt);
+       }
+
+    }
     
     
 }

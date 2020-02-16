@@ -20,9 +20,9 @@ public class Conexao {
     
     
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/dbmercadinho";
+    private static final String URL = "jdbc:mysql://localhost:3306/librery";
     private static final String USER = "root";
-    private static final String PASS = "";
+    private static final String PASS = "root";
 
     public static java.sql.Connection getConnection() {
         try {
@@ -72,4 +72,5 @@ public class Conexao {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+   
 }
