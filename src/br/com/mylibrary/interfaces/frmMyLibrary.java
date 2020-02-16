@@ -10,7 +10,9 @@ import br.com.mylibrary.controller.controllerLibrary;
 import br.com.mylibrary.daoMyLibrery.daoMyLibrary;
 import br.com.mylibrary.model.Book;
 import br.com.mylibrary.tablemodel.TableModel;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -285,12 +287,22 @@ public class frmMyLibrary extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
-        Book bk = new Book();
-        controllerLibrary dao = new controllerLibrary();
-        int idfind = Integer.parseInt(txtFind.getText());
-        bk.setId(idfind);
-        TableModel tb = new TableModel(dao.selection(bk));
-        tbLibrary.setModel(tb);
+        
+        
+        if(!(txtFind.getText().isEmpty())){  
+            Book bk = new Book();
+            controllerLibrary dao = new controllerLibrary();
+        
+            int idfind = Integer.parseInt(txtFind.getText());
+        
+            bk.setId(idfind);
+            
+            TableModel tb = new TableModel(dao.selection(bk));
+            tbLibrary.setModel(tb);
+        }else{
+             JOptionPane.showMessageDialog(null, "Enter the book code to perform a search");
+        }
+        
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnSalveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalveActionPerformed

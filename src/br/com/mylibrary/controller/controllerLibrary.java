@@ -9,6 +9,7 @@ import br.com.mylibrary.daoMyLibrery.daoMyLibrary;
 import br.com.mylibrary.model.Book;
 import br.com.mylibrary.model.Version;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,11 +32,14 @@ public class controllerLibrary {
         dao.delete(b);
     }
     
+    //
     public List<Book> selection(Book b){
         daoMyLibrary dao = new daoMyLibrary();
         return dao.selection(b);
+        
     }
     
+    //ELE RETORNA A VERSÃO DO SISTEMA
     public Version selectionVersion(){
         daoMyLibrary dao = new daoMyLibrary();
         return dao.version();

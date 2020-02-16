@@ -93,19 +93,20 @@ public class daoMyLibrary {
 
        Connection con = Conexao.getConnection();
        List<Book> bb = new ArrayList<>();
+       List<Book> ba = new ArrayList<>();
        
        ResultSet rs = null;
        PreparedStatement stmt = null;
 
        try {
-           stmt = con.prepareStatement("SELECT * FROM book WHERE id = ?");
+           stmt = con.prepareStatement("SELECT book_name, book_owner, status FROM book WHERE id = ?");
            stmt.setInt(1, b.getId());
            rs = stmt.executeQuery();
            
            while (rs.next()) {
                 Book bk = new Book();
                 bk.setBook_name(rs.getString("book_name"));
-                bk.setBook_owner(rs.getString("book_owrne"));
+                bk.setBook_owner(rs.getString("book_owner"));
                 bk.setStatus(rs.getString("status"));
                
                 bb.add(bk);
@@ -116,7 +117,13 @@ public class daoMyLibrary {
        } finally {
            Conexao.closeConnection(con, stmt);
        }
-       return bb;
+        
+        if(!bb.isEmpty()){
+            return bb;
+        }
+            JOptionPane.showMessageDialog(null, "Book not found");
+            return ba;
+            
     }
     
     public Version version() {
